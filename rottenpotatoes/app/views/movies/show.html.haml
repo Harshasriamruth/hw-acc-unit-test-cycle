@@ -1,0 +1,18 @@
+/ app/views/movies/show.html.haml
+%h2
+  Details about
+  %em= @movie.title
+%ul#details
+  %li
+    Rating:
+    = @movie.rating
+  %li
+    Released on:
+    = @movie.release_date.strftime("%B %d, %Y")
+%h3 Description:
+%p#description
+  = @movie.description
+.row
+  = link_to 'Edit', edit_movie_path(@movie), :class => 'btn btn-primary col-2'
+  = link_to 'Delete', movie_path(@movie), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2'
+  = link_to 'Back to movie list', movies_path, :class => 'btn btn-primary col-2'
